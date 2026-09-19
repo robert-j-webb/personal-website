@@ -7,6 +7,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://robertjwebb.com',
   output: 'static',
   integrations: [react()],
   devToolbar: { enabled: false },
