@@ -1,1 +1,163 @@
 @import "tailwindcss";
+
+:root {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #292b27;
+  background: #f7f5f0;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --ink: #292b27;
+  --muted: #686a62;
+  --accent: #bb462c;
+  --rule: #dcdcd2;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+::selection { background: #ebc6b4; color: var(--ink); }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+a:hover { color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; border-radius: 2px; }
+svg { display: block; }
+
+.resume { max-width: 1440px; padding: 0 72px; margin: 0 auto; }
+.masthead { min-height: 96px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--rule); gap: 24px; }
+.location, .email { display: inline-flex; align-items: center; gap: 11px; font-size: 13px; line-height: 1.6; }
+.location { margin: 0; color: var(--muted); }
+.location::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+.email { text-decoration: none; }
+.arrow { flex: 0 0 auto; width: 16px; height: 16px; transition: transform 180ms ease; }
+a:hover .arrow { transform: translate(2px, -2px); }
+
+.hero { padding: 72px 0 76px; display: grid; grid-template-columns: minmax(0, 1fr) 280px; column-gap: 64px; align-items: center; }
+.hero h1 { font-size: clamp(72px, 8.7vw, 126px); font-weight: 500; letter-spacing: -0.073em; line-height: 1.05; margin: 0 0 29px -7px; }
+.intro { font-size: clamp(23px, 2.15vw, 31px); font-weight: 400; line-height: 1.38; letter-spacing: -0.035em; max-width: 635px; margin: 0; text-wrap: pretty; }
+.motto { margin: 23px 0 0; font-size: 14px; line-height: 1.7; color: var(--muted); }
+.hero-aside { align-self: stretch; display: flex; flex-direction: column; align-items: flex-end; justify-content: space-between; padding-top: 6px; }
+.asterisk { width: 137px; height: 137px; color: var(--accent); margin-right: 8px; }
+.linkedin { display: inline-flex; align-items: center; gap: 11px; max-width: 100%; font-size: 12px; line-height: 1.6; color: var(--muted); text-decoration: none; padding-bottom: 4px; }
+.linkedin span { overflow-wrap: anywhere; }
+
+.resume-body { display: grid; grid-template-columns: minmax(0, 1fr) 310px; column-gap: 65px; padding: 39px 0 96px; border-top: 1px solid var(--ink); }
+.section-heading { display: flex; align-items: center; gap: 11px; margin: 0 0 42px; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 11px; line-height: 1.5; font-weight: 500; letter-spacing: 0.09em; }
+.section-heading::before { content: ""; flex: 0 0 auto; width: 6px; height: 6px; background: var(--accent); }
+.position { padding: 0 0 35px; }
+.position + .position { padding-top: 34px; border-top: 1px solid var(--rule); }
+.position:last-child { padding-bottom: 0; }
+.position-heading { margin: 0; font-size: 23px; font-weight: 400; line-height: 1.5; letter-spacing: -0.04em; text-wrap: pretty; }
+.company { font-weight: 550; }
+.role { color: var(--muted); font-size: 19px; letter-spacing: -0.025em; }
+.dates { color: var(--muted); margin: 7px 0 22px; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 11px; line-height: 1.8; }
+.position-body { font-size: 15px; line-height: 1.82; letter-spacing: -0.005em; color: #575b52; }
+.position-body p { margin: 0 0 15px; }
+.position-body p:last-child { margin-bottom: 0; }
+.position-body .project { color: var(--ink); margin-bottom: 18px; }
+.position-body a { text-decoration-line: underline; text-decoration-color: #a8a99f; transition: color 160ms ease; }
+.position-body a:hover { text-decoration-color: var(--accent); }
+
+.sidebar { border-left: 1px solid var(--rule); padding-left: 37px; }
+.sidebar .section-heading { margin-bottom: 28px; letter-spacing: 0.025em; }
+.skills { padding: 0; margin: 0; list-style: none; }
+.skills li { padding: 11px 0; border-bottom: 1px solid var(--rule); font-size: 13px; line-height: 1.7; }
+.skills li:first-child { padding-top: 0; }
+.skill-years { color: var(--muted); white-space: nowrap; font-size: 11px; }
+.other-skills { margin-top: 45px; }
+.other-skills .section-heading { margin-bottom: 17px; }
+.other-skills p { color: var(--muted); font-size: 13px; line-height: 2; margin: 0; }
+.education { padding-top: 37px; margin-top: 38px; border-top: 1px solid var(--rule); }
+.education .section-heading { margin-bottom: 23px; letter-spacing: 0.09em; }
+.education h3 { margin: 0; font-size: 18px; line-height: 1.55; letter-spacing: -0.025em; font-weight: 500; }
+.degree { display: block; font-weight: 400; color: var(--muted); font-size: 15px; }
+.education .dates { margin: 12px 0; font-size: 10px; }
+.education p:last-child { margin: 0; font-size: 13px; line-height: 1.8; color: var(--muted); }
+.endmark { height: 45px; display: flex; justify-content: center; align-items: center; border-top: 1px solid var(--rule); margin-bottom: 25px; }
+.endmark span { width: 5px; height: 5px; background: var(--accent); transform: rotate(45deg); }
+
+@media (min-width: 1600px) {
+  .hero { padding-top: 92px; padding-bottom: 92px; }
+}
+
+@media (max-width: 1100px) {
+  .resume { padding: 0 42px; }
+  .hero { grid-template-columns: minmax(0, 1fr) 230px; column-gap: 35px; }
+  .hero h1 { font-size: 88px; }
+  .asterisk { width: 110px; height: 110px; }
+  .linkedin { font-size: 11px; }
+  .resume-body { grid-template-columns: minmax(0, 1fr) 265px; column-gap: 37px; }
+  .sidebar { padding-left: 28px; }
+  .role { font-size: 17px; }
+}
+
+@media (max-width: 800px) {
+  .resume { padding: 0 30px; }
+  .masthead { min-height: 79px; }
+  .hero { grid-template-columns: minmax(0, 1fr) 160px; padding: 56px 0; gap: 25px; }
+  .hero h1 { font-size: 72px; margin-left: -4px; }
+  .intro { font-size: 23px; }
+  .motto { max-width: 320px; font-size: 13px; }
+  .asterisk { width: 95px; height: 95px; }
+  .linkedin { font-size: 10px; gap: 7px; }
+  .resume-body { grid-template-columns: 1fr; padding-bottom: 56px; }
+  .sidebar { margin-top: 50px; padding: 34px 0 0; border-left: 0; border-top: 1px solid var(--ink); display: grid; grid-template-columns: 1fr 1fr; align-content: start; column-gap: 40px; }
+  .proficient { grid-row: span 2; }
+  .other-skills { margin: 0; }
+  .education { margin-top: 28px; padding-top: 28px; }
+  .skills li { font-size: 14px; }
+  .position-heading { font-size: 25px; }
+  .role { font-size: 20px; }
+}
+
+@media (max-width: 560px) {
+  .resume { padding: 0 22px; }
+  .masthead { min-height: 73px; gap: 14px; }
+  .location, .email { font-size: 11px; gap: 7px; }
+  .email .arrow { width: 13px; height: 13px; }
+  .hero { display: block; padding: 45px 0 38px; position: relative; }
+  .hero h1 { font-size: clamp(53px, 13.9vw, 76px); margin-bottom: 24px; }
+  .intro { font-size: 24px; line-height: 1.4; max-width: 370px; }
+  .motto { margin-top: 21px; max-width: 290px; font-size: 12px; }
+  .hero-aside { padding: 29px 0 0; flex-direction: row-reverse; align-items: center; gap: 20px; }
+  .asterisk { width: 47px; height: 47px; margin: 0 3px 0 0; }
+  .linkedin { font-size: 11px; max-width: 260px; }
+  .resume-body { padding-top: 29px; }
+  .section-heading { margin-bottom: 29px; }
+  .position-heading { font-size: 22px; line-height: 1.6; }
+  .role { font-size: 18px; }
+  .dates { font-size: 10px; margin: 9px 0 19px; }
+  .position-body { font-size: 14px; line-height: 1.85; }
+  .position { padding-bottom: 28px; }
+  .position + .position { padding-top: 27px; }
+  .sidebar { display: block; margin-top: 37px; }
+  .sidebar .section-heading { font-size: 12px; }
+  .other-skills { margin-top: 34px; }
+  .other-skills p { font-size: 14px; }
+  .education { margin-top: 33px; padding-top: 30px; }
+  .education .dates { font-size: 11px; }
+  .endmark { margin-bottom: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; }
+}
+
+@media print {
+  :root { background: white; color: black; }
+  .resume { padding: 0; max-width: none; }
+  .masthead { min-height: 45px; }
+  .hero { display: grid; padding: 30px 0; grid-template-columns: 1fr 200px; }
+  .hero h1 { font-size: 64px; }
+  .intro { font-size: 20px; }
+  .asterisk { width: 70px; height: 70px; }
+  .resume-body { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 25px; padding: 25px 0; }
+  .sidebar { display: block; border-top: 0; border-left: 1px solid var(--rule); padding: 0 0 20px 20px; margin: 0; }
+  .section-heading { margin-bottom: 24px; }
+  .position-heading { font-size: 19px; }
+  .role { font-size: 15px; }
+  .position-body { font-size: 11px; line-height: 1.65; }
+  .skills li, .other-skills p, .education p:last-child { font-size: 11px; }
+  .other-skills { margin-top: 30px; }
+  .position h3 { break-after: avoid; }
+  .position p, .education { break-inside: avoid; }
+  .endmark { display: none; }
+}
