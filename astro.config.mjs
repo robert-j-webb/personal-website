@@ -9,6 +9,9 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   site: "https://robertjwebb.com",
   output: "static",
+  build: {
+    inlineStylesheets: "always",
+  },
   integrations: [react()],
   devToolbar: { enabled: false },
 

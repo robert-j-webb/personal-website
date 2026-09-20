@@ -28,6 +28,9 @@ a {
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
 }
+a span {
+  text-decoration: underline;
+}
 a:hover {
   color: var(--accent);
 }
